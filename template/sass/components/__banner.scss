@@ -59,9 +59,7 @@
         margin: 0 auto;
         line-height: 1.15;
 		transition: all .3s ease;
-		// @include min-media($bk-768){
-		// 	animation: focus-in-expand-fwd  2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-		// }
+		
 
         span {
             color: #F37131;
@@ -121,12 +119,40 @@
         bottom: 75px;
 
 		@include min-media($bk-768){
-			animation: slide-in-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-			animation-delay: .5s;
+			animation: slide-in-bottom 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+			animation-delay: .6s;
 		}
     }
 
     .phone-three {
         right: 0;
     }
+
+	.ig-vit{
+		position: absolute;
+		bottom: 0;
+		left: 60%;
+		transform: translate(-50% , 0);
+		@include max-media($bk-d-1200){
+			transform: scale(.8);
+			transform-origin: left;
+		}
+		@include max-media($bk-d-1200){
+			transform: scale(.6);
+		}
+		@include max-media($bk-d-768){
+			transform: scale(.5);
+			transform-origin: left bottom;
+		}
+		@include max-media($bk-576){
+			transform: scale(.4);
+		}
+
+		.img-vit{
+			@include min-media($bk-768){
+				animation: bounceInDown 1.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+				animation-delay: 1.2s;
+			}
+		}
+	}
 }

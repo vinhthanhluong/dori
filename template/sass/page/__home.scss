@@ -42,7 +42,7 @@
         justify-content: center;
         flex-wrap: wrap;
 
-        span {
+        .span {
             color: $yl-cl;
             text-decoration: underline;
             padding: 0 5px;
@@ -53,7 +53,7 @@
                 position: static;
             }
 
-            img {
+            .img-vt {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -86,6 +86,9 @@
 
         img {
             height: 36px;
+            @include max-media($bk-d-992){
+                height: 32px;
+            }
         }
     }
 

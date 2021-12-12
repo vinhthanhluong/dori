@@ -4,13 +4,13 @@ export default function ScrollClassModule() {
             , header = $('.header')
             , header_height = header.outerHeight() - 40;
         // , content_list = $('.box-fx .box-list');
-
+        console.log(header_height)
         $(window).on('scroll', function () {
             var cur_pos = $(this).scrollTop();
 
             sections.each(function () {
                 var top = $(this).offset().top - header_height,
-                    bottom = top + $(this).outerHeight();
+                    bottom = top + $(this).outerHeight() ;
                     var topnews = parseInt(top),
                     bottomnews = parseInt(bottom);
                 if (cur_pos >= topnews && cur_pos <= bottomnews) {
@@ -28,7 +28,7 @@ export default function ScrollClassModule() {
                 , id = $el.attr('href');
 
             $('html, body').animate({
-                scrollTop: $(id).offset().top - header_height
+                scrollTop: $(id).offset().top - header_height 
             }, 500);
 
             return false;
