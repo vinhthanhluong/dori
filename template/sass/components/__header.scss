@@ -36,6 +36,12 @@
         align-items: center;
         // color: $t-w-cl;
         transition: all .3s ease;
+        @include max-media($bk-d-1440){
+            padding: 30px 0 10px;
+        }
+        @include max-media($bk-d-1200){
+            padding: 20px 0 10px;
+        }
     }
 }
 
@@ -372,7 +378,8 @@
         padding: 8px 15px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
+
         // text-transform: uppercase;
         font-weight: 600;
         @include trans(.3s);
@@ -417,7 +424,7 @@
 
             &:focus {
                 @include max-media($bk-d-1200) {
-                    color: $main-cl;
+                    color: $orange-cl;
                 }
             }
         }

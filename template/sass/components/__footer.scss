@@ -1,8 +1,19 @@
 .footer{
-    background-color: $bg-w-cl;
+    background-color: transparent;
     margin-top: auto;
     padding: 120px 0;
-    background-color: $main-cl;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    @include max-media($bk-d-1200){
+        padding: 100px 0 80px;
+    }
+    @include max-media($bk-d-992){
+        padding: 60px 0 40px;
+    }
+    @include max-media($bk-d-768){
+        padding: 40px 0;
+    }
     .logo{
     }
 
@@ -11,17 +22,39 @@
     }
 
     .column{
+        &.lg{
+            @include max-media($bk-d-992){
+                width:100%;
+                margin-bottom: 10px;
+            }
+        }
         &.txt{
             width: calc(100% / 12 * 7 + 30px);
+            @include max-media($bk-d-768){
+                width: 100%;
+            }
+            
         }
 
         &.inf{
             width: calc(100% / 12 * 2 + 30px);
+            @include max-media($bk-d-992){
+                width: calc(100% / 12 * 4 - 30px);
+            }
+            @include max-media($bk-d-768){
+                width: 100%;
+            }
         }
     }
 
     .ft-tt{
         margin-bottom: 16px;
+        @include max-media($bk-d-992){
+            margin-bottom: 12px;
+        }
+        @include max-media($bk-d-768){
+            margin-bottom: 8px;
+        }
     }
 
     .ft-content{
@@ -29,6 +62,9 @@
 
         .list{
             padding: 15px 0;
+            @include  max-media($bk-d-992){
+                padding: 8px 0;
+            }
         }
 
         .item{
@@ -61,6 +97,15 @@
 
     .ft-follow{
         margin-top: 70px;
+        @include max-media($bk-d-1440){
+            margin-top: 40px;
+        }
+        @include max-media($bk-d-992){
+            margin-top: 30px;
+        }
+        @include max-media($bk-d-768){
+            margin-top: 20px;
+        }
 
         .ft-tt{
             margin-bottom: 0;
