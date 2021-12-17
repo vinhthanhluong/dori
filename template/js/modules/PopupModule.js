@@ -5,7 +5,7 @@ export default function PopupModule(){
         type: 'inline',
 		preloader: false,
 		focus: '#name',
-
+		mainClass: 'mfp-zoom-in', // add class
 		// When elemened is focused, some mobile browsers in some cases zoom in
 		// It looks not nice, so we disable it:
 		callbacks: {
@@ -21,7 +21,7 @@ export default function PopupModule(){
 
 	$(document).on('click', '.popup-btn', function (e) {
 		e.preventDefault();
-		const link = $(this).attr('href') || $(this).attr('data-mfp-src');
+		const link = $(this).attr('href') ;
 		$.magnificPopup.open({
 			items: {
 				src: link,
@@ -35,12 +35,12 @@ export default function PopupModule(){
 			fixedBgPos: true, // SET HEIGHT BACKGROUND FIX WITH CONTENT
 			fixedContentPos: false, // FIXED CONTENT AT CLICKED POSITION
 			callbacks: {
-				open: function () {
-					$('body').addClass('modal-open');
-				},
-				close: function () {
-					$('body').removeClass('modal-open');
-				},
+				// open: function () {
+				// 	$('body').addClass('modal-open');
+				// },
+				// close: function () {
+				// 	$('body').removeClass('modal-open');
+				// },
 			},
 		});
 	});	

@@ -447,4 +447,29 @@
 }
 
 
+@keyframes bg-slide {
+ 
+    0% {
+        opacity: 0; 
+    }
+
+    5% {
+        opacity: 1; 
+        background-color: $main-cl;
+        
+    }
+    29% {
+        opacity: 1; 
+        background-color: $main-cl;
+    }
+    30% {
+        opacity: 0; 
+        
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
 

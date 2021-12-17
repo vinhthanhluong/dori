@@ -1,61 +1,4 @@
 export default function SlideModule() {
-    function slide() {
-        let width = $(window).width();
-        //console.log(width);
-        if (width <= 1200 && document.querySelector('#slide-home')) {
-            const swiper = document.querySelector('#slide-home');
-            const sliderContainer = swiper.querySelector('.swiper');
-            const SliderPagination = swiper.querySelector('.swiper-pagination-orange');
-            const sliderPrevBtn = swiper.querySelector('.swiper-prev');
-            const sliderNextBtn = swiper.querySelector('.swiper-next');
-            try {
-                const swiper = new Swiper(sliderContainer, {
-                    speed: 1000,
-                    loop: true,
-                    // autoHeight: true,
-                    //spaceBetween: 20,
-                    slidesPerView: 1,
-                    autoplay: {
-                        delay: 4000,
-                    },
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true,
-                    },
-
-                    // navigation: {
-                    //     nextEl: '.swiper-button-next',
-                    //     prevEl: '.swiper-button-prev',
-                    // },
-
-                    breakpoints: {
-                        // 320: {
-                        //     spaceBetween: 50
-                        // },
-                        // 480: {
-                        //     spaceBetween: 30
-                        // },
-                        // 576: {
-                        //     spaceBetween: 0,
-
-                        // }
-                    }
-                    // observeParents:true,
-                    // observeSlideChildren: true,
-                    // observer: true,
-                })
-            }
-            catch (err) {
-                console.log(err)
-            }
-
-        }
-    }
-
-    $(window).on("resize", function () {
-        slide;
-    });
-
     document.querySelectorAll('.swiper-custom').forEach(el => {
         const slider = el.querySelector('.swiper');
         const pagination = el.querySelector('.swiper-pagination');
@@ -90,16 +33,36 @@ export default function SlideModule() {
             new Swiper(slider, {
                 speed: 1200,
                 slidesPerView: 'auto',
-                autoHeight: false,
+               
                 observer: true,
                 observeParents: true,
                 observeSlideChildren: true,
                 loop: loops,
-                allowTouchMove: notSlide,
 
-                autoplay: {
-                    delay: 4000,
+                breakpoints: {
+                    320: {
+                        // spaceBetween: 50
+                        allowTouchMove: true,
+                        // autoHeight: true,
+                        autoHeight: true,
+                    },
+
+                    577:{
+                        autoHeight: false,
+                    },
+
+
+                  
+                    1200: {
+                       
+                        allowTouchMove: notSlide,
+                        autoHeight: false,
+                    },
                 },
+
+                // autoplay: {
+                //     delay: 4000,
+                // },
 
                 pagination: {
                     el: pagination,
@@ -118,8 +81,8 @@ export default function SlideModule() {
     })
 
 
-    if (document.querySelector('.swiper-about')) {
-        const swiper = document.querySelector('.swiper-about');
+    if (document.querySelector('.swiper-endow')) {
+        const swiper = document.querySelector('.swiper-endow');
         const sliderContainer = swiper.querySelector('.swiper');
         const SliderPagination = swiper.querySelector('.swiper-pagination');
         const sliderPrevBtn = swiper.querySelector('.swiper-button-prev');
@@ -127,17 +90,18 @@ export default function SlideModule() {
         try {
             const swiper = new Swiper(sliderContainer, {
                 speed: 1000,
-                loop: true,
-                spaceBetween: 30,
-                slidesPerView: 3,
+                loop: false,
+                spaceBetween: 12,
+                slidesPerView: 4,
                 // autoplay: {
                 //     delay: 4000,
                 // },
+                direction: 'vertical',
                 pagination: {
                     el: SliderPagination,
                     clickable: true,
                 },
-
+                allowTouchMove: false,
                 navigation: {
                     nextEl: sliderNextBtn,
                     prevEl: sliderPrevBtn,
@@ -159,14 +123,16 @@ export default function SlideModule() {
                 // observeSlideChildren: true,
                 // observer: true,
             })
+
+            // swiper.slideTo(1);
         }
         catch (err) {
             console.log(err)
         }
     }
 
-    if (document.querySelector('.swiper-endow')) {
-        const swiper = document.querySelector('.swiper-endow');
+    if (document.querySelector('.swiper-ben')) {
+        const swiper = document.querySelector('.swiper-ben');
         const sliderContainer = swiper.querySelector('.swiper');
         const SliderPagination = swiper.querySelector('.swiper-pagination');
         const sliderPrevBtn = swiper.querySelector('.swiper-button-prev');
@@ -175,17 +141,18 @@ export default function SlideModule() {
             const swiper = new Swiper(sliderContainer, {
                 speed: 1000,
                 loop: true,
-                spaceBetween: 12,
-                slidesPerView: 4,
-                // autoplay: {
-                //     delay: 4000,
-                // },
-                direction: 'vertical',
+                // spaceBetween: 12,
+                slidesPerView: 1,
+                autoplay: {
+                    delay: 4000,
+                },
+                // direction: 'vertical',
                 pagination: {
                     el: SliderPagination,
                     clickable: true,
+                    dynamicBullets: true,
                 },
-
+                // allowTouchMove: false,
                 navigation: {
                     nextEl: sliderNextBtn,
                     prevEl: sliderPrevBtn,

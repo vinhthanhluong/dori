@@ -65,6 +65,12 @@
             @include  max-media($bk-d-992){
                 padding: 8px 0;
             }
+
+            .ft-ds{
+                @include max-media(500px){
+                    font-size: 10px !important;
+                }
+            }
         }
 
         .item{
@@ -83,6 +89,8 @@
             text-decoration: underline;
         }
     }
+
+   
 
     .ft-itm{
         display: flex;

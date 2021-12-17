@@ -16,10 +16,34 @@
 
     .swiper-button-prev {
         left: 20px;
+        &::after{
+            margin-right: 2px;
+        }
     }
 
     .swiper-button-next {
         right: 20px;
+        &::after{
+            margin-left: 2px;
+        }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        transform: translate(0, -50%);
+        top: 50%;
+        margin: 0;
+        background-color: $b-cl;
+        transition: all 0.3s ease;
+        color: $w-cl;
+        @include hidden;
+
+        &::after{
+            font-size: 18px;
+        }
     }
 
     .swiper-pagination {
@@ -27,53 +51,55 @@
         bottom: 0;
     }
 
+    .swiper{
+        &:hover{
+            .swiper-button-next , .swiper-button-prev{
+                @include visible;
+            }
+        }
+    }
+
     padding: 192px 0 414px;
     position: relative;
     overflow: hidden;
-    // background-image: url('../img/bg-banners.png');
+    background-image: url('../img/bg-banners.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
-    background-color: $main-cl;
-    border-radius: 0 0 50% 50% / 140px;
+    clip-path: ellipse(73% 59% at 50% 40%);
+    // background-color: $main-cl;
+    // border-radius: 0 0 50% 50% / 170px;
 
     @include max-media($bk-d-1440) {
         padding: 160px 0 326px;
-		border-radius: 0 0 60% 60% / 90px;
+    	// border-radius: 0 0 60% 60% / 90px;
     }
-	@include max-media($bk-d-1200) {
+    @include max-media($bk-d-1200) {
         padding: 130px 0 280px;
-		border-radius: 0 0 50% 50% / 70px;
+    	// border-radius: 0 0 50% 50% / 70px;
     }
-	@include max-media($bk-d-992) {
+    @include max-media($bk-d-992) {
         padding: 120px 0 220px;
-		border-radius: 0 0 50% 50% / 30px;
+    	// border-radius: 0 0 50% 50% / 30px;
     }
-	@include max-media($bk-576) {
-		padding: 120px 0 170px;
-		border-radius: 0 0 50% 50% / 20px;
+    @include max-media($bk-576) {
+    	padding: 110px 0 170px;
+        clip-path: ellipse(90% 59% at 50% 40%);
+    	// border-radius: 0 0 50% 50% / 20px;
     }
 
     .title {
         max-width: 876px;
         margin: 0 auto;
         line-height: 1.15;
-		transition: all .3s ease;
-		
+    	transition: all .3s ease;
+
 
         span {
             color: #F37131;
             font-weight: bold;
         }
     }
-
-    // .img-phone-new{
-    // 	position: absolute;
-    // 	bottom: 0;
-    // 	left: 50%;
-    // 	transform: translate(-50% , -0%);
-    // 	display: none;
-    // }
 
     .img-phone {
         position: absolute;
@@ -86,14 +112,14 @@
         @include max-media($bk-d-1440) {
             transform: translate(-50%, 50%) scale(.8);
         }
-		@include max-media($bk-d-1200) {
+    	@include max-media($bk-d-1200) {
             transform: translate(-50%, 50%) scale(.7);
         }
-		@include max-media($bk-d-992) {
+    	@include max-media($bk-d-992) {
             transform: translate(-50%, 50%) scale(.6);
         }
-		@include max-media($bk-576) {
-            transform: translate(-50%, 50%) scale(.4);
+    	@include max-media($bk-576) {
+            transform: translate(-50%, 46%) scale(.4);
         }
     }
 
@@ -118,41 +144,179 @@
         z-index: 1;
         bottom: 75px;
 
-		@include min-media($bk-768){
-			animation: slide-in-bottom 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-			animation-delay: .6s;
-		}
+    	@include min-media($bk-768){
+    		animation: slide-in-bottom 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    		animation-delay: .6s;
+    	}
     }
 
     .phone-three {
         right: 0;
     }
 
-	.ig-vit{
-		position: absolute;
-		bottom: 0;
-		left: 60%;
-		transform: translate(-50% , 0);
-		@include max-media($bk-d-1200){
-			transform: scale(.8);
-			transform-origin: left;
-		}
-		@include max-media($bk-d-1200){
-			transform: scale(.6);
-		}
-		@include max-media($bk-d-768){
-			transform: scale(.5);
-			transform-origin: left bottom;
-		}
-		@include max-media($bk-576){
-			transform: scale(.4);
-		}
+    .ig-vit{
+    	position: absolute;
+    	bottom: 0;
+    	left: 60%;
+    	transform: translate(-50% , 0);
+    	@include max-media($bk-d-1200){
+    		transform: scale(.8);
+    		transform-origin: left;
+    	}
+    	@include max-media($bk-d-1200){
+    		transform: scale(.6);
+    	}
+    	@include max-media($bk-d-768){
+    		transform: scale(.5);
+    		transform-origin: left bottom;
+    	}
+    	@include max-media($bk-576){
+    		transform: scale(.5) translateX(10px);
+    	}
 
-		.img-vit{
-			@include min-media($bk-768){
-				animation: bounceInDown 1.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-				animation-delay: 1.2s;
-			}
-		}
-	}
+    	.img-vit{
+    		@include min-media($bk-768){
+    			animation: bounceInDown 1.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    			animation-delay: 1.2s;
+    		}
+    	}
+    }
+
+    // code slide 
+    // padding: 192px 0 414px;
+
+    position: relative;
+    overflow: hidden;
+    clip-path: ellipse(73% 59% at 50% 40%);
+
+    // .banners-wrap {
+    //     background-image: url('../img/bg-banners.png');
+    //     background-repeat: no-repeat;
+    //     background-size: cover;
+    //     background-position: bottom;
+    //     // padding: 221px 0 0;
+    //     // @include max-media($bk-d-1440) {
+    //     //     padding-top: 150px;
+    //     // }
+
+    //     // @include max-media($bk-d-1200) {
+    //     //     padding-top: 0px;
+    //     // }
+
+    //     @include max-media($bk-d-992) {}
+
+    //     @include max-media($bk-576) {}
+    // }
+
+    // .img-phone {
+    //     transform: translate(0, 50%);
+    //     width: 830px;
+    //     height: 479px;
+    //     position: relative;
+    //     margin: 0 auto;
+    //     max-width: 100%;
+
+    //     @include max-media($bk-d-1440) {
+    //         transform: translate(0, 50%) scale(1);
+    //     }
+
+    //     @include max-media($bk-d-1200) {
+    //         transform: translate(0%, 50%) scale(.8);
+    //     }
+
+    //     @include max-media($bk-d-992) {
+    //         transform: translate(0%, 50%) scale(.7);
+    //         height: 400px;
+    //     }
+
+    //     @include max-media($bk-d-768) {
+    //         transform: translate(0%, 40%) scale(.9);
+    //         // transform: translate(0%, 50%);
+    //         // transform: none;
+    //         width: 500px;
+    //         height: 380px;
+    //     }
+
+    //     @include max-media($bk-576) {
+    //         transform: translate(0%, 40%) scale(.9);
+    //         width: 400px;
+    //         height: 320px;
+    //     }
+    // }
+
+    // .ig-dt {
+    //     position: absolute;
+    //     bottom: 0;
+    //     max-height: 479px;
+
+    //     @include max-media($bk-d-768) {
+    //         transform: scale(1);
+    //         width: calc(100% /2);
+    //     }
+
+
+    //     img {
+    //         height: 100%;
+    //     }
+
+    // }
+
+    // .phone-one {
+    //     left: 0;
+    // }
+
+    // .phone-two {
+    //     left: 50%;
+    //     transform: translateX(-50%);
+    //     z-index: 1;
+    //     bottom: 75px;
+
+    //     @include min-media($bk-768) {
+    //         animation: slide-in-bottom 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    //         animation-delay: .6s;
+    //     }
+
+    //     @include max-media($bk-576) {
+    //         bottom: 60px;
+    //     }
+    // }
+
+    // .phone-three {
+    //     right: 0;
+    // }
+
+    // .ig-vit {
+    //     position: absolute;
+    //     bottom: 10px;
+    //     left: 60%;
+    //     z-index: 1;
+    //     transform: translate(-50%, 0);
+
+    //     @include max-media($bk-d-1200) {
+    //         transform: scale(.8);
+    //         transform-origin: left;
+    //     }
+
+    //     @include max-media($bk-d-1200) {
+    //         transform: scale(.6);
+    //     }
+
+    //     @include max-media($bk-d-768) {
+    //         transform: scale(.5);
+    //         transform-origin: left bottom;
+    //     }
+
+    //     @include max-media($bk-576) {
+    //         transform: scale(.4);
+    //     }
+
+    //     .img-vit {
+    //         @include min-media($bk-768) {
+    //             animation: bounceInDown 1.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    //             animation-delay: 1.2s;
+    //         }
+    //     }
+    // }
+
+    
 }
